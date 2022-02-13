@@ -18,8 +18,10 @@ function fetchUserData() {
 function render(obj) {
     obj.data.forEach(element => {
         //console.log(element.restaurant_name)
-        result.innerHTML += `<h2>${element.restaurant_name}</h2>`
-        result.innerHTML += `<h4>${element.restaurant_phone}</h4>`
+        result.innerHTML += `<li>${element.restaurant_name}</li>`
+       // result.innerHTML += `<h4>${element.cuisines}</h4>`
+       // result.innerHTML += `<h4>${element.restaurant_phone}</h4>`
+        
     })
 
 }
@@ -31,3 +33,7 @@ function filter(obj) {
    
     return obj;
 }
+
+
+
+ 
