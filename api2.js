@@ -1,11 +1,11 @@
-const searchElement = document.getElementById('fetchUserDataBtn').addEventListener('click', fetchUserData);
+const searchElement = document.getElementById('myInput').addEventListener('keyup', myInput);
 const optionElement = document.getElementById('option')
 const inputElement = document.getElementById('areaCode')
 const result = document.getElementById('result')
 
 
 
-function fetchUserData() {
+function myInput() {
     fetch('api.json')
         .then(response => response.json())
         .then(obj => {
