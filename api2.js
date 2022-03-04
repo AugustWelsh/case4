@@ -16,11 +16,11 @@ function /*myInput*/fetchUserData() {
         }).then(obj => filter(obj))
         .then(obj => render(obj));
 }
-
+fetchUserData();
 function render(obj) {
     obj.data.forEach(element => {
         //console.log(element.restaurant_name)
-        result.innerHTML += `<li><a>${element.restaurant_name} <br> <p>Cuisines:</p><h4>${element.cuisines}</h4> <h4>${element.restaurant_website}</h4> </a></li>`
+        result.innerHTML += `<li><div>${element.restaurant_name} <br> <p>Cuisines:</p><h4>${element.cuisines.join(" - ")}</h4> <h4><a href="${element.restaurant_website}" target="_blank"> ${element.restaurant_website}</a></h4></div></li>`
        // result.innerHTML += `<h4>${element.cuisines}</h4>`
        // result.innerHTML += `<h4>${element.restaurant_phone}</h4>`
         
@@ -38,8 +38,9 @@ function myFunction() {
   
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      txtValue = a.textContent || a.innerText;
+      div = li[i].getElementsByTagName("div")[0];
+      txtValue = div.textContent || div.innerText;
+      console.log(txtValue)
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         li[i].style.display = "";
       } else {
